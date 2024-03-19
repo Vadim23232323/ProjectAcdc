@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class Quest {
-    private Long id;
 
+    private Long id;
     private String title;
     private String description;
     private int Level;
