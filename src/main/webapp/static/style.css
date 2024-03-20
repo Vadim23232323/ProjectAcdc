@@ -1,0 +1,25 @@
+
+/* Кнопки регистрации */
+.sign-nav {
+    margin: 3px;
+    display: inline-block;
+    padding: 0px 12px;
+    color: #fff; /* Цвет текста */
+    background-color: #007bff; /* Цвет фона */
+    border: 2px solid #007bff; /* Синяя обводка */
+    border-radius: 6px; /* Закругленные края */
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Плавные переходы */
+}
+
+/* При наведении мыши */
+.sign-nav:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+    border-color: #0056b3; /* Темно-синяя обводка при наведении */
+}
+
+.fa-puzzle-piece {
+    font-size: 40px;
+    padding-left: 26px;
+    color: orangered;
+}
