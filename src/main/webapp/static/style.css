@@ -1,13 +1,13 @@
 
 /* Кнопки регистрации */
 .sign-nav {
-    margin: 3px;
+    margin: 6px;
     display: inline-block;
     padding: 0px 12px;
     color: #fff; /* Цвет текста */
     background-color: #007bff; /* Цвет фона */
     border: 2px solid #007bff; /* Синяя обводка */
-    border-radius: 6px; /* Закругленные края */
+    border-radius: 4px; /* Закругленные края */
     text-decoration: none; /* Убираем подчеркивание у ссылки */
     transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Плавные переходы */
 }
@@ -18,8 +18,26 @@
     border-color: #0056b3; /* Темно-синяя обводка при наведении */
 }
 
+/* Логотип */
+
 .fa-puzzle-piece {
     font-size: 40px;
     padding-left: 26px;
     color: orangered;
+}
+
+.logo{
+    font-size: 30px;
+    padding-left: 4px;
+    color: orangered;
+    font-family: "Arial Black";
+}
+
+.carousel-item {
+
+}
+
+.carousel-item img{
+    border-radius: 10px;
+    height: 600px;
 }

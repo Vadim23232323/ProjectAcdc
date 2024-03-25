@@ -1,8 +1,5 @@
 package com.javarush.khmelov.repository;
-
 import com.javarush.khmelov.entity.Quest;
-import com.javarush.khmelov.entity.User;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,9 +13,8 @@ public class QuestRepository implements Repository<Quest>{
     public static final AtomicLong id = new AtomicLong(System.currentTimeMillis());
 
     public QuestRepository() {
-        map.put(1l, new Quest(1L,"Потеря памяти", "ты потерял память. принять вызов НЛО",1));
-        map.put(1l, new Quest(2L,"Мостик", "Принял вызов, поднимаешься на мостик к капитану",2));
-        map.put(1l, new Quest(3L,"Ты кто", "поднялся на мостик. Ты кто",3));
+        map.put(1l, new Quest(1L, "НЛО",1L));
+
     }
 
     @Override

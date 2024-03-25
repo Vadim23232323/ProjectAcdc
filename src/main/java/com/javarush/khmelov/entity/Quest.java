@@ -5,14 +5,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Quest {
+public class Quest implements AbstractEntity {
 
     private Long id;
-    private String title;
-    private String description;
-    private int Level;
+
+    private String name;
+
+    private Long startQuestionId;
+
+    private final Collection<Question> questions = new ArrayList<>();
 }

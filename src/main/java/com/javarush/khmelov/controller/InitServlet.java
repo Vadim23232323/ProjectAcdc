@@ -18,14 +18,6 @@ public class InitServlet extends HttpServlet {
         // Создание новой сессии
         HttpSession currentSession = req.getSession(true);
 
-        QuestRepository questRepository = new QuestRepository();
-
-
-        // Добавление в сессию параметров поля (нужно будет для хранения состояния между запросами)
-        currentSession.setAttribute("field", questRepository);
-        // и значений поля, отсортированных по индексу (нужно для отрисовки крестиков и ноликов)
-
-
         // Перенаправление запроса на страницу index.jsp через сервер
         getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
     }
