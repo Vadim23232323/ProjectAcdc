@@ -22,13 +22,9 @@
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 
-        <%-- guest --%>
-        <li><a href="${pageContext.request.contextPath}/start" class="nav-link px-2">Home</a></li>
-        <%-- user --%>
-        <li><a href="${pageContext.request.contextPath}/question" class="nav-link px-2">Квест</a></li>
-        <%-- admin--%>
-        <li><a href="#" class="nav-link px-2">Меню 2</a></li>
-        <li><a href="#" class="nav-link px-2">Меню 3</a></li>
+
+        <li><a href="${pageContext.request.contextPath}/start" class="nav-link px-2">ГЛАВНАЯ</a></li>
+        <li><a href="${pageContext.request.contextPath}/list-quest" class="nav-link px-2">КВЕСТЫ</a></li>
     </ul>
 
     <ul class="nav col-md-3 text-end">

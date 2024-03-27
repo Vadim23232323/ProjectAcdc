@@ -20,9 +20,10 @@ public class Quest implements AbstractEntity {
 
     private Long startQuestionId;
 
+    private String image;
+
     private final Collection<Question> questions = new ArrayList<>();
 
-    public String getImage() {
-        return "question-" + id;
-    }
+
+
 }

@@ -2,6 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="parts/header.jsp" %>
 <div>
-    <img src="${pageContext.request.contextPath}/image/quest_1.png" class="fon" alt="...">
+    <img src="${pageContext.request.contextPath}/image/quest_fon.png" class="fon" alt="...">
 </div>
 <%@include file="parts/footer.jsp" %>

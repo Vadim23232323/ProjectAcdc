@@ -1,26 +1,29 @@
 package com.javarush.khmelov.service;
 
 import com.javarush.khmelov.entity.Answer;
+import com.javarush.khmelov.entity.Quest;
 import com.javarush.khmelov.entity.Question;
 import com.javarush.khmelov.repository.AnswerRepository;
+import com.javarush.khmelov.repository.QuestRepository;
 import com.javarush.khmelov.repository.QuestionRepository;
 
 import java.util.Optional;
 
 public class QuestionService {
 
+    private QuestRepository questRepository;
     private QuestionRepository questionRepository;
     private AnswerRepository answerRepository;
 
-    public QuestionService(QuestionRepository questionRepository, AnswerRepository answerRepository) {
+    public QuestionService(QuestRepository questRepository, QuestionRepository questionRepository, AnswerRepository answerRepository) {
         this.questionRepository = questionRepository;
         this.answerRepository = answerRepository;
+        this.questRepository = questRepository;
     }
 
     public Optional<Question> getNextQuestion(Long answerId) {
         if (answerId == null) {
-            // Логика выбора стартового вопроса
-            return questionRepository.get(1L); // Заменить на реальный идентификатор стартового вопроса
+            return questionRepository.get(1); // Заменить на реальный идентификатор стартового вопроса
         }
 
         Optional<Answer> answerOptional = answerRepository.get(answerId);
@@ -29,6 +32,15 @@ public class QuestionService {
             if (nextQuestionId != null) {
                 return questionRepository.get(nextQuestionId);
             }
+        }
+        return Optional.empty();
+    }
+
+    public Optional<Question> getStartingQuestionForQuest(Long questId) {
+        Optional<Quest> questOptional = questRepository.get(questId);
+        if (questOptional.isPresent()) {
+            Long startQuestionId = questOptional.get().getStartQuestionId();
+            return questionRepository.get(startQuestionId);
         }
         return Optional.empty();
     }

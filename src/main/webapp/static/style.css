@@ -37,12 +37,13 @@
 
 /* Название квеста */
 
-.name-quest{
+.name-page{
     font-family: "Arial Black";
     font-size: 28px;
     font-weight: bold;
     text-align: center;
     margin-top: 16px;
+    margin-bottom: 30px;
     display: inline-block;
     padding: 0px 12px;
     color: #fff; /* Цвет текста */
@@ -75,7 +76,7 @@
 }
 
 .footer-fon {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Кнопка рестарт */
