@@ -13,10 +13,24 @@ public class QuestionRepository implements Repository<Question>{
     public static final AtomicLong id = new AtomicLong(System.currentTimeMillis());
 
     public QuestionRepository() {
-        map.put(1L, new Question(1L, 1L, "Потеря памяти", "ты потерял память. принять вызов НЛО",1));
-        map.put(2L, new Question(2L, 1L, "Мостик", "Ты принял вызов, поднимаешься на мостик к капитану",2));
-        map.put(3L, new Question(3L, 1L, "Ты кто", "поднялся на мостик. Ты кто",3));
-        map.put(4L, new Question(4L, 1L, "Победа", "тебя вернули домой",3));
+
+        // Question NLO
+        map.put(1L, new Question(1L, 1L,"ты потерял память. принять вызов НЛО ?",1,false,false));
+        map.put(2L, new Question(2L, 1L,"Ты принял вызов, поднимаешься на мостик к капитану ?",2,false,false));
+        map.put(3L, new Question(3L, 1L,"поднялся на мостик. Ты кто ?",3,false,false));
+        map.put(4L, new Question(4L, 1L, "Победа. Тебя вернули домой",4,true,false));
+        map.put(5L, new Question(5L, 1L, "Ты отклонил вызов.Поражение",1,false,true));
+        map.put(6L, new Question(6L, 1L, "Ты не пошел на переговоры.Поражение",2,false,true));
+        map.put(7L, new Question(7L, 1L, "Твою ложь разоблачили.Поражение",3,false,true));
+
+        // Question land travel
+        map.put(8L, new Question(8L, 2L,"Ты стоишь на вершине горы",1,false,false));
+        map.put(9L, new Question(9L, 2L,"Ты на поляне с цветами",1,false,false));
+        map.put(10L, new Question(10L, 2L,"Ты плаваешь в океане",1,false,false));
+        map.put(11L, new Question(11L, 2L,"Ты на берегу моря",1,false,false));
+        map.put(12L, new Question(12L, 2L,"Ты на пляже с ракушками",1,false,false));
+        map.put(13L, new Question(13L, 2L,"Ты в густом лесу",1,false,false));
+        map.put(14L, new Question(14L, 2L,"Поздравляю! Ты завершил свое путешествие по Земле!",1,true,false));
     }
 
     @Override

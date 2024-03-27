@@ -13,21 +13,22 @@
     <title>Quest</title>
 </head>
 <body>
-<header class="bg-light d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+<header class="bg-light d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom">
     <a href="${pageContext.request.contextPath}/start"
        class="d-flex align-items-left col-md-2 mb-2 mb-md-0 text-dark text-decoration-none">
-        <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
-        <p class="logo">КВЕСТ</p>
+        <i class="fa fa-ioxhost" aria-hidden="true"></i>
+        <p class="logo">КВЕСТЫ</p>
     </a>
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+
         <%-- guest --%>
         <li><a href="${pageContext.request.contextPath}/start" class="nav-link px-2">Home</a></li>
         <%-- user --%>
-        <li><a href="${pageContext.request.contextPath}/quest" class="nav-link px-2">Квест</a></li>
+        <li><a href="${pageContext.request.contextPath}/question" class="nav-link px-2">Квест</a></li>
         <%-- admin--%>
-        <li><a href="list-user" class="nav-link px-2">Меню 2</a></li>
-        <li><a href="create-quest" class="nav-link px-2">Меню 3</a></li>
+        <li><a href="#" class="nav-link px-2">Меню 2</a></li>
+        <li><a href="#" class="nav-link px-2">Меню 3</a></li>
     </ul>
 
     <ul class="nav col-md-3 text-end">
@@ -37,7 +38,6 @@
                 <li><a href="logout" class="nav-m">Logout</a></li>
             </c:when>
             <c:otherwise>
-
                 <li> <a href="login" class="sign-nav">Login </a></li>
                 <li><a href="signup" class="sign-nav"> Sign-up</a></li>
             </c:otherwise>

@@ -1,19 +1,26 @@
 package com.javarush.khmelov.repository;
+
 import com.javarush.khmelov.entity.Quest;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class QuestRepository implements Repository<Quest>{
+public class QuestRepository implements Repository<Quest> {
 
     private final Map<Long, Quest> map = new HashMap<>();
 
     public static final AtomicLong id = new AtomicLong(System.currentTimeMillis());
 
     public QuestRepository() {
-        map.put(1l, new Quest(1L, "НЛО",1L));
+
+        // Quest NLO
+        map.put(1l, new Quest(1L, "НЛО", 1L));
+
+        // Quest land travel
+        map.put(2l, new Quest(2L, "Путешествие по Земле", 8L));
 
     }
 
@@ -21,7 +28,6 @@ public class QuestRepository implements Repository<Quest>{
     public Collection<Quest> getAll() {
         return map.values();
     }
-
 
 
     @Override

@@ -15,11 +15,10 @@ import java.util.Collection;
 public class Question implements AbstractEntity {
     private Long id;
     private Long questId;
-    private String title;
     private String description;
-    private int Level;
+    private int level;
+    private boolean win;
+    private boolean wasted;
     private final Collection<Answer> answers = new ArrayList<>();
-    public String getImage() {
-        return "question-" + id;
-    }
+
 }
