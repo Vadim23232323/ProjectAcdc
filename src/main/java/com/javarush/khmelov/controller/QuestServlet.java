@@ -1,11 +1,7 @@
 package com.javarush.khmelov.controller;
 
 import com.javarush.khmelov.entity.Quest;
-import com.javarush.khmelov.entity.Question;
-import com.javarush.khmelov.repository.AnswerRepository;
 import com.javarush.khmelov.repository.QuestRepository;
-import com.javarush.khmelov.repository.QuestionRepository;
-import com.javarush.khmelov.service.QuestionService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,10 +12,9 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Optional;
 
 @WebServlet(name = "QuestServlet", value = "/list-quest")
-public class questServlet extends HttpServlet {
+public class QuestServlet extends HttpServlet {
 
     private QuestRepository questRepository;
 

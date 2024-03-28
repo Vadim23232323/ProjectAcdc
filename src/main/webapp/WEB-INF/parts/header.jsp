@@ -34,7 +34,7 @@
                 <li><a href="logout" class="nav-m">Logout</a></li>
             </c:when>
             <c:otherwise>
-                <li> <a href="login" class="sign-nav">Login </a></li>
+                <li> <a href="login" class="sign-nav">Login</a></li>
                 <li><a href="signup" class="sign-nav"> Sign-up</a></li>
             </c:otherwise>
         </c:choose>

@@ -17,11 +17,11 @@ public class QuestRepository implements Repository<Quest> {
     public QuestRepository() {
 
         // Quest NLO
-        map.put(1l, new Quest(1L, "НЛО", 1L,"Quest_1.jpg"));
-
+        map.put(1l, new Quest(1L, "НЛО", 1L, "Quest_1.jpg"));
         // Quest land travel
-        map.put(2l, new Quest(2L, "Путешествие по Земле", 8L,"Quest_2.jpg"));
-
+        map.put(2l, new Quest(2L, "Путешествие по Земле", 8L, "Quest_2.jpg"));
+        // Quest car mystery
+        map.put(3l, new Quest(3L, "Загадки автомобилей", 15L, "Quest_3.jpg"));
 
     }
 

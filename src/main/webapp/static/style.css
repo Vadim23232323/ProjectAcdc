@@ -81,6 +81,10 @@
 
 /* Кнопка рестарт */
 
+.bottom-fixed {
+    margin-top: 30px;
+}
+
 .btn-new {
     text-align: center;
     font-family: "Arial Black";
@@ -94,6 +98,11 @@
     background-image: linear-gradient(to right, #003CC5 0%, #0B63F6 51%, #003CC5 100%);
     opacity: 0;
     animation: fadeInAnimation 1s ease-in forwards;
+    text-decoration: none;
+}
+
+.restart {
+    margin-bottom: 30px;
 }
 
 @keyframes fadeInAnimation {
@@ -108,3 +117,7 @@
 .btn-new:hover {
     background-position: right center;
 }
+
+
+/* Форма авторизации */
+
