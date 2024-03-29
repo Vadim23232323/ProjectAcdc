@@ -16,7 +16,6 @@ import java.util.Optional;
 
 @WebServlet(name = "ImageServlet", value = "/image")
 public class ImageServlet extends HttpServlet {
-
     private final QuestRepository questRepository = new QuestRepository(); // Assuming you have an instance of QuestRepository
 
     @Override

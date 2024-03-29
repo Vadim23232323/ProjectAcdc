@@ -79,6 +79,28 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+
+
+/* Стиль главной формы */
+
+.info-form {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+}
+
+.info-text-z {
+    font-weight: bold;
+    font-family: "Arial Black";
+    text-transform: uppercase;
+}
+
+.info-text {
+    font-family: "Arial";
+    font-size: 22px;
+    text-align: justify;
+}
+
 /* Кнопка рестарт */
 
 .bottom-fixed {
@@ -120,4 +142,11 @@
 
 
 /* Форма авторизации */
+
+.authorization-form {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+
+}
 

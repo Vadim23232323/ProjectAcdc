@@ -51,4 +51,6 @@ public class QuestRepository implements Repository<Quest> {
     public void delete(Quest entity) {
         map.remove(entity.getId());
     }
+
+
 }

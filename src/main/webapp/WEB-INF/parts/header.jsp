@@ -22,20 +22,28 @@
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 
+        <c:choose>
+            <c:when test="${not empty sessionScope.user}">
+                <li><a href="${pageContext.request.contextPath}/start" class="nav-link px-2">ГЛАВНАЯ</a></li>
+                <li><a href="${pageContext.request.contextPath}/list-quest" class="nav-link px-2">КВЕСТЫ</a></li>
+            </c:when>
+            <c:otherwise>
+                <li><a href="${pageContext.request.contextPath}/start" class="nav-link px-2">ГЛАВНАЯ</a></li>
+            </c:otherwise>
+        </c:choose>
 
-        <li><a href="${pageContext.request.contextPath}/start" class="nav-link px-2">ГЛАВНАЯ</a></li>
-        <li><a href="${pageContext.request.contextPath}/list-quest" class="nav-link px-2">КВЕСТЫ</a></li>
+
     </ul>
 
     <ul class="nav col-md-3 text-end">
         <c:choose>
             <c:when test="${not empty sessionScope.user}">
-                <li><a href="profile" class="nav-m">Profile</a></li>
-                <li><a href="logout" class="nav-m">Logout</a></li>
+                <li><a href="profile" class="sign-nav">Профиль</a></li>
+                <li><a href="logout" class="sign-nav">Выйти</a></li>
             </c:when>
             <c:otherwise>
-                <li> <a href="login" class="sign-nav">Login</a></li>
-                <li><a href="signup" class="sign-nav"> Sign-up</a></li>
+                <li> <a href="login" class="sign-nav">Войти</a></li>
+                <li><a href="signup" class="sign-nav">Регистрация</a></li>
             </c:otherwise>
         </c:choose>
     </ul>

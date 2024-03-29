@@ -33,4 +33,9 @@ public class UserService {
     public Optional<User> get(long id) {
         return userRepository.get(id);
     }
+
+    public Optional<User> findByLogin(String login) {
+        return userRepository.findByLogin(login);
+    }
+
 }

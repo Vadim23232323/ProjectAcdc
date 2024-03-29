@@ -16,10 +16,7 @@ public class UserRepository implements Repository<User> {
     public static final AtomicLong id = new AtomicLong(System.currentTimeMillis());
 
     public UserRepository() {
-        map.put(1L, new User(1L,"Alisa","qwerty", Role.USER));
-        map.put(2L, new User(2L,"Bob","", Role.GUEST));
-        map.put(3L, new User(3L,"Carl","admin", Role.ADMIN));
-        map.put(4L, new User(4L,"Khmelov","admin", Role.ADMIN));
+        map.put(1L, new User(1L,"Vadim","123", Role.USER));
     }
 
     @Override
@@ -46,5 +43,11 @@ public class UserRepository implements Repository<User> {
     @Override
     public void delete(User entity) {
         map.remove(entity.getId());
+    }
+
+    public Optional<User> findByLogin(String login) {
+        return map.values().stream()
+                .filter(user -> user.getLogin().equals(login))
+                .findFirst();
     }
 }
