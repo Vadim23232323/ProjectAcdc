@@ -21,23 +21,22 @@ public class QuestServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        initializeRepositories();
-    }
-
-    private void initializeRepositories() {
         ServletContext context = getServletContext();
+
+        questRepository = (QuestRepository) context.getAttribute("questRepository");
+
         if (context.getAttribute("questRepository") == null) {
-            QuestRepository questRepository = new QuestRepository();
+            questRepository = new QuestRepository();
             context.setAttribute("questRepository", questRepository);
         }
     }
+
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession currentSession = req.getSession(true);
-
-        questRepository = new QuestRepository();
 
         Collection<Quest> quest = questRepository.getAll();
 

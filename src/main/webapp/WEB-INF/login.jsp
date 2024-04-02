@@ -3,7 +3,7 @@
 <%@include file="parts/header.jsp" %>
 <div><img src="${pageContext.request.contextPath}/image/quest_fon.png" class="fon" alt="..."></div>
 
-
+<!-- Form authorization -->
 <div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-9 col-md-9 col-lg-7 col-xl-5">
@@ -11,16 +11,20 @@
 
                 <form class="form-horizontal" action="login" method="post">
                     <fieldset>
-                        <!-- Form Name -->
                         <legend class="name-page">Вход в учетную запись</legend>
-                        <!-- Text input-->
+
+                        <!-- Error message -->
+                        <c:if test="${not empty errorMessage}">
+                            <div class="alert alert-danger">${errorMessage}</div>
+                        </c:if>
+
+                        <!-- Login input-->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="userLogin">Учетная запись</label>
                             <div class="col-md-12">
-                                <input id="userLogin" name="login" type="text" placeholder="set login"
+                                <input id="userLogin" name="login" type="text" placeholder="введите логин"
                                        class="form-control input-md"
-                                       required=""
-                                       value="Carl">
+                                       value="">
 
                             </div>
                         </div>
@@ -29,9 +33,9 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="userPassword">Пароль</label>
                             <div class="col-md-12">
-                                <input id="userPassword" name="password" type="password" placeholder="pass req"
+                                <input id="userPassword" name="password" type="password" placeholder="введите пароль"
                                        class="form-control input-md" required=""
-                                       value="admin">
+                                       value="">
 
                             </div>
                         </div>

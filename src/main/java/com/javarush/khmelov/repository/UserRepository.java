@@ -16,7 +16,7 @@ public class UserRepository implements Repository<User> {
     public static final AtomicLong id = new AtomicLong(System.currentTimeMillis());
 
     public UserRepository() {
-        map.put(1L, new User(1L,"Vadim","123", Role.USER));
+        map.put(1L, new User(1L,"Vadim","Dubovskiy","Vadim","111", Role.USER));
     }
 
     @Override

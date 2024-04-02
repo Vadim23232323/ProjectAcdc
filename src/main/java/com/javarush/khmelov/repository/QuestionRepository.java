@@ -1,9 +1,10 @@
 package com.javarush.khmelov.repository;
-import com.javarush.khmelov.entity.Answer;
-import com.javarush.khmelov.entity.Quest;
-import com.javarush.khmelov.entity.Question;
 
-import java.util.*;
+import com.javarush.khmelov.entity.Question;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class QuestionRepository implements Repository<Question>{
@@ -22,14 +23,16 @@ public class QuestionRepository implements Repository<Question>{
         map.put(5L, new Question(5L, 1L, "Ты отклонил вызов.Поражение.",1,false,true));
         map.put(6L, new Question(6L, 1L, "Ты не пошел на переговоры.Поражение.",2,false,true));
         map.put(7L, new Question(7L, 1L, "Твою ложь разоблачили.Поражение.",3,false,true));
+
         // Question land travel
         map.put(8L, new Question(8L, 2L,"Ты стоишь на вершине горы",1,false,false));
-        map.put(9L, new Question(9L, 2L,"Ты на поляне с цветами",1,false,false));
-        map.put(10L, new Question(10L, 2L,"Ты плаваешь в океане",1,false,false));
-        map.put(11L, new Question(11L, 2L,"Ты на берегу моря",1,false,false));
-        map.put(12L, new Question(12L, 2L,"Ты на пляже с ракушками",1,false,false));
-        map.put(13L, new Question(13L, 2L,"Ты в густом лесу",1,false,false));
-        map.put(14L, new Question(14L, 2L,"Поздравляю! Ты завершил свое путешествие по Земле!",1,true,false));
+        map.put(9L, new Question(9L, 2L,"Ты на поляне с цветами",2,false,false));
+        map.put(10L, new Question(10L, 2L,"Ты плаваешь в океане",3,false,false));
+        map.put(11L, new Question(11L, 2L,"Ты на берегу моря",4,false,false));
+        map.put(12L, new Question(12L, 2L,"Ты на пляже с ракушками",5,false,false));
+        map.put(13L, new Question(13L, 2L,"Ты в густом лесу",6,false,false));
+        map.put(14L, new Question(14L, 2L,"Поздравляю! Ты завершил свое путешествие по Земле!",7,true,false));
+
         // Quest car mystery
         map.put(15L, new Question(15L, 3L,"Какой автомобиль считается самым продаваемым в мире?",1,false,false));
         map.put(16L, new Question(16L, 3L,"Какая страна производит больше всего автомобилей?",2,false,false));

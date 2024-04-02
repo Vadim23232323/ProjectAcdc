@@ -2,16 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<c:if test="${not empty requestScope.errorMessage}">
-    <div class="container d-flex flex-wrap justify-content-center">
-            <span class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                <span class="alert alert-warning" role="alert">
-                        ${requestScope.errorMessage}
-                </span>
-            </span>
-    </div>
-</c:if>
-
 <footer class="py-3 my-4 fixed-bottom footer-fon">
     <p class="text-center footer">© 2024 Vadim Dubovskiy</p>
 </footer>

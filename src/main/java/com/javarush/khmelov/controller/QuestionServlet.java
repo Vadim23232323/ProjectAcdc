@@ -55,10 +55,8 @@ public class QuestionServlet extends HttpServlet {
         Optional<Question> questionOptional;
 
         if (questId != null) {
-
             questionOptional = questionService.getStartingQuestionForQuest(questId);
         } else {
-
             questionOptional = questionService.getNextQuestion(answerId);
         }
 

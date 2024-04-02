@@ -1,51 +1,71 @@
 package com.javarush.khmelov.controller;
 
-import com.javarush.khmelov.entity.Quest;
+import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
-import com.javarush.khmelov.repository.QuestRepository;
 import com.javarush.khmelov.repository.UserRepository;
+import com.javarush.khmelov.service.UserService;
+import com.javarush.khmelov.util.BasicPasswordEncoder;
+import com.javarush.khmelov.util.GO;
+import com.javarush.khmelov.util.PasswordEncoder;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
-import java.util.Collection;
+
 
 
 @WebServlet(name = "SignupServlet", value = "/signup")
 public class SignupServlet extends HttpServlet {
 
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        initializeRepositories();
-    }
-
-    private void initializeRepositories() {
         ServletContext context = getServletContext();
-        if (context.getAttribute("userRepository") == null) {
-            userRepository = new UserRepository();
-            context.setAttribute("userRepository", userRepository);
+
+        userService = (UserService) context.getAttribute("userService");
+
+        if (userService == null) {
+            userService = new UserService(new UserRepository());
+            context.setAttribute("userService", userService);
         }
     }
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession currentSession = req.getSession(true);
-
-        userRepository = new UserRepository();
-
-        Collection<User> user = userRepository.getAll();
-
-        currentSession.setAttribute("user", user);
-
-        getServletContext().getRequestDispatcher("/WEB-INF/list-user.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/create-user.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String login = req.getParameter("userLogin");
+        String password = req.getParameter("userPassword");
+        String name = req.getParameter("userName");
+        String surname = req.getParameter("userSurname");
+
+        if (userService.findByLogin(login).isPresent()) {
+
+            req.setAttribute("errorMessage", "Пользователь с таким именем уже существует!");
+            getServletContext().getRequestDispatcher("/WEB-INF/create-user.jsp").forward(req, resp);
+            return;
+        }
+
+        PasswordEncoder passwordEncoder = new BasicPasswordEncoder();
+        User user = User.builder()
+                .login(login)
+                .password(passwordEncoder.encode(password))
+                .name(name)
+                .surname(surname)
+                .role(Role.USER)
+                .build();
+
+        userService.create(user);
+
+        resp.sendRedirect(GO.LOGIN);
+    }
+
 }
