@@ -10,6 +10,7 @@
     <script src="<c:url value="/static/jquery-3.6.0.min.js"/>"></script>
     <link href="${pageContext.request.contextPath}/static/style.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/13d829f7a0.js"></script>
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/image/favicon.png">
     <title>Quest</title>
 </head>
 <body>
