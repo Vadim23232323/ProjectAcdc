@@ -12,10 +12,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.Optional;
 
+@Slf4j
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
     private UserService userService;
@@ -36,6 +38,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+
+        log.info("Открыта страница авторизации пользователя");
     }
 
     @Override
@@ -54,10 +58,14 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user", user);
 
                 resp.sendRedirect(GO.LIST_QUEST);
-            } else {
 
+                log.info("Пользователь: " + login + " успешно выполнил вход");
+
+            } else {
                 req.setAttribute("errorMessage", "Неверно указан пароль!");
                 getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+
+                log.info("Пользователь: " + login + " указал не верный пароль при попытке авторизации.");
             }
         } else {
             req.setAttribute("errorMessage", "Имя пользователя заданно неверно или не существует!");

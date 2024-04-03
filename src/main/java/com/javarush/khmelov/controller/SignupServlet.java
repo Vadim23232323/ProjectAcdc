@@ -13,10 +13,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 
 
-
+@Slf4j
 @WebServlet(name = "SignupServlet", value = "/signup")
 public class SignupServlet extends HttpServlet {
 
@@ -38,6 +40,8 @@ public class SignupServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/WEB-INF/create-user.jsp").forward(req, resp);
+
+        log.info("Открыта страница регистрации.");
     }
 
     @Override
@@ -49,9 +53,12 @@ public class SignupServlet extends HttpServlet {
 
         if (userService.findByLogin(login).isPresent()) {
 
+            log.info("Пользователь с именем " + login + " уже существует!");
+
             req.setAttribute("errorMessage", "Пользователь с таким именем уже существует!");
             getServletContext().getRequestDispatcher("/WEB-INF/create-user.jsp").forward(req, resp);
             return;
+
         }
 
         PasswordEncoder passwordEncoder = new BasicPasswordEncoder();
@@ -64,6 +71,8 @@ public class SignupServlet extends HttpServlet {
                 .build();
 
         userService.create(user);
+
+        log.info("Пользователь " + login + " успешно зарегистрирован.");
 
         resp.sendRedirect(GO.LOGIN);
     }

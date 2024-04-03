@@ -6,9 +6,10 @@ import com.javarush.khmelov.entity.Question;
 import com.javarush.khmelov.repository.AnswerRepository;
 import com.javarush.khmelov.repository.QuestRepository;
 import com.javarush.khmelov.repository.QuestionRepository;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
-
+@Slf4j
 public class QuestionService {
 
     private QuestRepository questRepository;
@@ -37,7 +38,11 @@ public class QuestionService {
     }
 
     public Optional<Question> getStartingQuestionForQuest(Long questId) {
+
         Optional<Quest> questOptional = questRepository.get(questId);
+
+        log.info("Пользователь запустил квест: " + questOptional.get().getName());
+
         if (questOptional.isPresent()) {
             Long startQuestionId = questOptional.get().getStartQuestionId();
             return questionRepository.get(startQuestionId);

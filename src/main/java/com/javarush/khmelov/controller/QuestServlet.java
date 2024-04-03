@@ -9,10 +9,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.Collection;
 
+@Slf4j
 @WebServlet(name = "QuestServlet", value = "/list-quest")
 public class QuestServlet extends HttpServlet {
 
@@ -43,5 +45,7 @@ public class QuestServlet extends HttpServlet {
         currentSession.setAttribute("quest", quest);
 
         getServletContext().getRequestDispatcher("/WEB-INF/list-quest.jsp").forward(req, resp);
+
+        log.info("Открыта страница квестов.");
     }
 }

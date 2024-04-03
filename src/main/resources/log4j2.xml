@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- в лог будет добавлятся заись вида: 2022-05-31 17:05:26,152 INFO Main: Начало. -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %level %logger{36}: %msg%n"/>
+        </Console>
+        <!-- Файл куда будет записываться логирование -->
+        <!-- Каждый день файл лога переменовывается по шаблону: LOG_NAME.%d{yyyy-MM-dd}.log  -->
+        <RollingFile name="RollingFile" fileName="C:/Course/ProjectAcdc/logs/quest.log"
+                     filePattern="logs/quest.%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %level %logger{36}: %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <OnStartupTriggeringPolicy/>
+            </Policies>
+            <!-- при достижении лимита в 7 файлов, самый старый файл будет удален при создании нового -->
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
