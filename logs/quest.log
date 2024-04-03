@@ -1,0 +1,7 @@
+2024-04-03 12:11:21,666 INFO com.javarush.khmelov.controller.InitServlet: Открыта стартовая страница: index.jsp
+2024-04-03 12:11:22,178 INFO com.javarush.khmelov.controller.InitServlet: Открыта стартовая страница: index.jsp
+2024-04-03 12:11:27,044 INFO com.javarush.khmelov.controller.LoginServlet: Открыта страница авторизации пользователя
+2024-04-03 12:11:28,648 INFO com.javarush.khmelov.controller.LoginServlet: Пользователь: Vadim успешно выполнил вход
+2024-04-03 12:11:29,312 INFO com.javarush.khmelov.controller.QuestServlet: Открыта страница квестов.
+2024-04-03 12:11:30,922 INFO com.javarush.khmelov.service.QuestionService: Пользователь запустил квест: НЛО
+2024-04-03 12:11:40,531 INFO com.javarush.khmelov.controller.LoginServlet: Открыта страница авторизации пользователя
