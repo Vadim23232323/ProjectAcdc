@@ -1,9 +1,10 @@
 package com.javarush.khmelov.controller;
+
 import com.javarush.khmelov.entity.User;
 import com.javarush.khmelov.service.UserService;
 import com.javarush.khmelov.util.BasicPasswordEncoder;
-import com.javarush.khmelov.util.GO;
 import com.javarush.khmelov.util.PasswordEncoder;
+import com.javarush.khmelov.util.WebPaths;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,9 +30,9 @@ public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher(WebPaths.WP_PROFILE).forward(req, resp);
 
-        log.info("Открыта страница профиля");
+        log.info("Profile page open");
     }
 
 
@@ -46,8 +47,8 @@ public class ProfileServlet extends HttpServlet {
         String newPassword = req.getParameter("userPassword");
 
         if (newSurname.isEmpty() || newName.isEmpty()) {
-            req.setAttribute("errorMessage", "Пожалуйста, заполните все обязательные поля.");
-            getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
+            req.setAttribute("errorMessage", "Please fill out all required fields.");
+            getServletContext().getRequestDispatcher(WebPaths.WP_PROFILE).forward(req, resp);
             return;
         }
 
@@ -58,15 +59,15 @@ public class ProfileServlet extends HttpServlet {
 
         if (!newPassword.isEmpty()) {
             currentUser.setPassword(passwordEncoder.encode(newPassword));
-            log.info("Пользователь: " + login + " сменил пароль.");
+            log.info("User: " + login + " changed the password.");
         }
 
         userService.update(currentUser);
 
-        log.info("Пользователь: " + login + " обновил свои данные.");
+        log.info("User: " + login + " updated my details.");
 
         session.setAttribute("user", currentUser);
 
-        resp.sendRedirect(GO.PROFILE);
+        resp.sendRedirect(WebPaths.PROFILE);
     }
 }

@@ -2,6 +2,7 @@ package com.javarush.khmelov.controller;
 
 import com.javarush.khmelov.entity.Quest;
 import com.javarush.khmelov.repository.QuestRepository;
+import com.javarush.khmelov.util.WebPaths;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,7 +35,6 @@ public class QuestServlet extends HttpServlet {
     }
 
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -44,8 +44,8 @@ public class QuestServlet extends HttpServlet {
 
         currentSession.setAttribute("quest", quest);
 
-        getServletContext().getRequestDispatcher("/WEB-INF/list-quest.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher(WebPaths.WP_LIST_QUEST).forward(req, resp);
 
-        log.info("Открыта страница квестов.");
+        log.info("The quests page is open.");
     }
 }

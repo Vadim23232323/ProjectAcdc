@@ -1,4 +1,5 @@
 package com.javarush.khmelov.controller;
+import com.javarush.khmelov.util.WebPaths;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,9 +16,9 @@ public class InitServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher(WebPaths.WP_INDEX).forward(req, resp);
 
-        log.info("Открыта стартовая страница: index.jsp");
+        log.info("The home page is open: index.jsp");
 
     }
 }

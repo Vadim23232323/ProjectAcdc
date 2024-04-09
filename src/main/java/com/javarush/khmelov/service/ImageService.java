@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 
 public class ImageService {
-    private ServletContext servletContext;
+    private final ServletContext servletContext;
 
     public ImageService(ServletContext servletContext) {
         this.servletContext = servletContext;

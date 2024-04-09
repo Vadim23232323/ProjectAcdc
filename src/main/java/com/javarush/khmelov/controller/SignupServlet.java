@@ -5,8 +5,8 @@ import com.javarush.khmelov.entity.User;
 import com.javarush.khmelov.repository.UserRepository;
 import com.javarush.khmelov.service.UserService;
 import com.javarush.khmelov.util.BasicPasswordEncoder;
-import com.javarush.khmelov.util.GO;
 import com.javarush.khmelov.util.PasswordEncoder;
+import com.javarush.khmelov.util.WebPaths;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -39,9 +39,9 @@ public class SignupServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/create-user.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher(WebPaths.WP_CREATE_USER).forward(req, resp);
 
-        log.info("Открыта страница регистрации.");
+        log.info("The registration page is open.");
     }
 
     @Override
@@ -52,13 +52,10 @@ public class SignupServlet extends HttpServlet {
         String surname = req.getParameter("userSurname");
 
         if (userService.findByLogin(login).isPresent()) {
-
-            log.info("Пользователь с именем " + login + " уже существует!");
-
-            req.setAttribute("errorMessage", "Пользователь с таким именем уже существует!");
-            getServletContext().getRequestDispatcher("/WEB-INF/create-user.jsp").forward(req, resp);
+            req.setAttribute("errorMessage", "A user with the same name already exists.");
+            getServletContext().getRequestDispatcher(WebPaths.WP_CREATE_USER).forward(req, resp);
+            log.info("A user named " + login + " already exists.");
             return;
-
         }
 
         PasswordEncoder passwordEncoder = new BasicPasswordEncoder();
@@ -72,9 +69,9 @@ public class SignupServlet extends HttpServlet {
 
         userService.create(user);
 
-        log.info("Пользователь " + login + " успешно зарегистрирован.");
+        log.info("User " + login + " has been successfully registered.");
 
-        resp.sendRedirect(GO.LOGIN);
+        resp.sendRedirect(WebPaths.LOGIN);
     }
 
 }

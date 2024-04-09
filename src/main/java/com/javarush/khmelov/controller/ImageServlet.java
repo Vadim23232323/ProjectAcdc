@@ -33,7 +33,7 @@ public class ImageServlet extends HttpServlet {
         if (questIdParam != null) {
             serveImage(questIdParam, resp);
         } else {
-            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Отсутствует параметр questId");
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "No questId parameter");
         }
     }
 
@@ -45,10 +45,10 @@ public class ImageServlet extends HttpServlet {
                 Quest quest = questOptional.get();
                 imageService.serveImage(quest.getImage(), resp);
             } else {
-                resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Квест с идентификатором: " + questId + " не найден");
+                resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Quest with identifier: " + questId + " not found");
             }
         } catch (NumberFormatException e) {
-            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Неверный формат questId: " + questIdParam);
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid questId format: " + questIdParam);
         }
     }
 }

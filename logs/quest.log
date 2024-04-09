@@ -1,7 +1,12 @@
-2024-04-03 12:11:21,666 INFO com.javarush.khmelov.controller.InitServlet: Открыта стартовая страница: index.jsp
-2024-04-03 12:11:22,178 INFO com.javarush.khmelov.controller.InitServlet: Открыта стартовая страница: index.jsp
-2024-04-03 12:11:27,044 INFO com.javarush.khmelov.controller.LoginServlet: Открыта страница авторизации пользователя
-2024-04-03 12:11:28,648 INFO com.javarush.khmelov.controller.LoginServlet: Пользователь: Vadim успешно выполнил вход
-2024-04-03 12:11:29,312 INFO com.javarush.khmelov.controller.QuestServlet: Открыта страница квестов.
-2024-04-03 12:11:30,922 INFO com.javarush.khmelov.service.QuestionService: Пользователь запустил квест: НЛО
-2024-04-03 12:11:40,531 INFO com.javarush.khmelov.controller.LoginServlet: Открыта страница авторизации пользователя
+2024-04-09 11:30:58,138 INFO com.javarush.khmelov.controller.InitServlet: The home page is open: index.jsp
+2024-04-09 11:30:58,519 INFO com.javarush.khmelov.controller.InitServlet: The home page is open: index.jsp
+2024-04-09 11:36:07,298 INFO com.javarush.khmelov.controller.LoginServlet: User login page is open
+2024-04-09 11:36:08,821 INFO com.javarush.khmelov.controller.LoginServlet: User: Vadim successfully logged in
+2024-04-09 11:36:09,378 INFO com.javarush.khmelov.controller.QuestServlet: The quests page is open.
+2024-04-09 11:36:10,734 INFO com.javarush.khmelov.service.QuestionService: User started quest: НЛО
+2024-04-09 11:36:13,549 INFO com.javarush.khmelov.service.QuestionService: User started quest: НЛО
+2024-04-09 11:36:16,524 INFO com.javarush.khmelov.service.QuestionService: User started quest: НЛО
+2024-04-09 11:36:18,836 INFO com.javarush.khmelov.controller.QuestServlet: The quests page is open.
+2024-04-09 11:36:19,886 INFO com.javarush.khmelov.service.QuestionService: User started quest: Загадки автомобилей
+2024-04-09 11:36:25,267 INFO com.javarush.khmelov.controller.QuestServlet: The quests page is open.
+2024-04-09 11:36:26,426 INFO com.javarush.khmelov.controller.ProfileServlet: Profile page open

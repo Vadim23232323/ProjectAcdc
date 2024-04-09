@@ -3,8 +3,8 @@ import com.javarush.khmelov.entity.User;
 import com.javarush.khmelov.repository.UserRepository;
 import com.javarush.khmelov.service.UserService;
 import com.javarush.khmelov.util.BasicPasswordEncoder;
-import com.javarush.khmelov.util.GO;
 import com.javarush.khmelov.util.PasswordEncoder;
+import com.javarush.khmelov.util.WebPaths;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -37,9 +37,9 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher(WebPaths.WP_LOGIN).forward(req, resp);
 
-        log.info("Открыта страница авторизации пользователя");
+        log.info("User login page is open");
     }
 
     @Override
@@ -57,19 +57,19 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = req.getSession(true);
                 session.setAttribute("user", user);
 
-                resp.sendRedirect(GO.LIST_QUEST);
+                resp.sendRedirect(WebPaths.LIST_QUEST);
 
-                log.info("Пользователь: " + login + " успешно выполнил вход");
+                log.info("User: " + login + " successfully logged in");
 
             } else {
-                req.setAttribute("errorMessage", "Неверно указан пароль!");
-                getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+                req.setAttribute("errorMessage", "The password is incorrect.");
+                getServletContext().getRequestDispatcher(WebPaths.WP_LOGIN).forward(req, resp);
 
-                log.info("Пользователь: " + login + " указал не верный пароль при попытке авторизации.");
+                log.info("User: " + login + " you specified the wrong password when trying to log in.");
             }
         } else {
-            req.setAttribute("errorMessage", "Имя пользователя заданно неверно или не существует!");
-            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+            req.setAttribute("errorMessage", "The username specified is incorrect or does not exist.");
+            getServletContext().getRequestDispatcher(WebPaths.WP_LOGIN).forward(req, resp);
         }
     }
 }
