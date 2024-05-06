@@ -1,15 +1,18 @@
-2024-05-06 11:59:11,667 INFO com.javarush.khmelov.controller.InitServlet: The home page is open: index.jsp
-2024-05-06 11:59:12,281 INFO com.javarush.khmelov.controller.InitServlet: The home page is open: index.jsp
-2024-05-06 12:07:38,214 INFO org.hibernate.Version: HHH000412: Hibernate ORM core version 6.1.1.Final
-2024-05-06 12:07:38,219 INFO org.hibernate.cfg.Environment: HHH000205: Loaded properties from resource hibernate.properties: {hibernate.connection.driver_class=org.postgresql.Driver, hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect, hibernate.connection.password=****, hibernate.connection.username=postgres, hibernate.connection.url=jdbc:postgresql://localhost:5432/quest, hibernate.hbm2ddl=update, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=true}
-2024-05-06 12:07:39,328 WARN org.hibernate.orm.connections.pooling: HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-06 12:07:39,336 INFO org.hibernate.orm.connections.pooling: HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
-2024-05-06 12:07:39,336 INFO org.hibernate.orm.connections.pooling: HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/quest]
-2024-05-06 12:07:39,336 INFO org.hibernate.orm.connections.pooling: HHH10001001: Connection properties: {password=****, user=postgres}
-2024-05-06 12:07:39,337 INFO org.hibernate.orm.connections.pooling: HHH10001003: Autocommit mode: false
-2024-05-06 12:07:39,350 INFO org.hibernate.orm.connections.pooling: HHH10001115: Connection pool size: 20 (min=1)
-2024-05-06 12:07:39,731 INFO SQL dialect: HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2024-05-06 12:07:41,449 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-05-06 12:07:41,761 INFO com.javarush.khmelov.controller.SignupServlet: The registration page is open.
-2024-05-06 12:07:49,471 INFO com.javarush.khmelov.controller.SignupServlet: User Vadim23232323 has been successfully registered.
-2024-05-06 12:07:49,769 INFO com.javarush.khmelov.controller.LoginServlet: User login page is open
+2024-05-06 12:16:34,018 INFO com.javarush.khmelov.controller.InitServlet: The home page is open: index.jsp
+2024-05-06 12:16:34,362 INFO com.javarush.khmelov.controller.InitServlet: The home page is open: index.jsp
+2024-05-06 12:16:37,642 INFO org.hibernate.Version: HHH000412: Hibernate ORM core version 6.1.1.Final
+2024-05-06 12:16:37,652 INFO org.hibernate.cfg.Environment: HHH000205: Loaded properties from resource hibernate.properties: {hibernate.connection.driver_class=org.postgresql.Driver, hibernate.format_sql=true, hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect, hibernate.connection.password=****, hibernate.connection.username=postgres, hibernate.connection.url=jdbc:postgresql://localhost:5432/quest, hibernate.hbm2ddl=update, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=true}
+2024-05-06 12:16:38,505 WARN org.hibernate.orm.connections.pooling: HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-06 12:16:38,513 INFO org.hibernate.orm.connections.pooling: HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-05-06 12:16:38,514 INFO org.hibernate.orm.connections.pooling: HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/quest]
+2024-05-06 12:16:38,514 INFO org.hibernate.orm.connections.pooling: HHH10001001: Connection properties: {password=****, user=postgres}
+2024-05-06 12:16:38,514 INFO org.hibernate.orm.connections.pooling: HHH10001003: Autocommit mode: false
+2024-05-06 12:16:38,520 INFO org.hibernate.orm.connections.pooling: HHH10001115: Connection pool size: 20 (min=1)
+2024-05-06 12:16:38,962 INFO SQL dialect: HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-05-06 12:16:40,734 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-06 12:16:41,069 INFO com.javarush.khmelov.controller.LoginServlet: User login page is open
+2024-05-06 12:16:43,756 INFO com.javarush.khmelov.controller.LoginServlet: User: Vadim232323 successfully logged in
+2024-05-06 12:16:44,254 INFO com.javarush.khmelov.controller.QuestServlet: The quests page is open.
+2024-05-06 12:17:58,465 INFO com.javarush.khmelov.controller.LoginServlet: User: Vadim232323 successfully logged in
+2024-05-06 12:17:58,495 INFO com.javarush.khmelov.controller.QuestServlet: The quests page is open.
+2024-05-06 12:18:00,351 INFO com.javarush.khmelov.controller.ProfileServlet: Profile page open
