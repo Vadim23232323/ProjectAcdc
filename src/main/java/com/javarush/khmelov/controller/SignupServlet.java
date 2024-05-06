@@ -1,6 +1,5 @@
 package com.javarush.khmelov.controller;
 
-import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
 import com.javarush.khmelov.repository.UserRepository;
 import com.javarush.khmelov.service.UserService;
@@ -58,16 +57,7 @@ public class SignupServlet extends HttpServlet {
             return;
         }
 
-        PasswordEncoder passwordEncoder = new BasicPasswordEncoder();
-        User user = User.builder()
-                .login(login)
-                .password(passwordEncoder.encode(password))
-                .name(name)
-                .surname(surname)
-                .role(Role.USER)
-                .build();
-
-        userService.create(user);
+        userService.create(userService.add(login,password,name,surname,1l));
 
         log.info("User " + login + " has been successfully registered.");
 

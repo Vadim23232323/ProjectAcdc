@@ -15,9 +15,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+
 @Slf4j
 @WebServlet(name = "QuestionServlet", value = "/question")
 public class QuestionServlet extends HttpServlet {
@@ -34,6 +36,7 @@ public class QuestionServlet extends HttpServlet {
         initializeQuestionService();
     }
 
+    // I plan to do dependency management
     private void initializeRepositories() {
         ServletContext context = getServletContext();
         if (context.getAttribute("questionRepository") == null) {
@@ -51,7 +54,7 @@ public class QuestionServlet extends HttpServlet {
         questionRepository = (QuestionRepository) context.getAttribute("questionRepository");
         answerRepository = (AnswerRepository) context.getAttribute("answerRepository");
         questRepository = (QuestRepository) context.getAttribute("questRepository");
-        questionService = new QuestionService(questRepository,questionRepository, answerRepository);
+        questionService = new QuestionService(questRepository, questionRepository, answerRepository);
     }
 
 

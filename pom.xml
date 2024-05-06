@@ -17,6 +17,14 @@
         <junit.version>5.9.2</junit.version>
     </properties>
 
+    <developers>
+        <developer>
+            <name>Vadim Dubovskiy</name>
+            <email>Vadim_milo.net@mail.ru</email>
+            <url>https://github.com/Vadim23232323?tab=repositories</url>
+        </developer>
+    </developers>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -90,6 +98,19 @@
             <artifactId>jbcrypt</artifactId>
             <version>0.4</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.1.1.Final</version>
+        </dependency>
+
 
     </dependencies>
 

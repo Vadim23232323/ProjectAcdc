@@ -1,10 +1,14 @@
 package com.javarush.khmelov.service;
 
+import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
 import com.javarush.khmelov.repository.UserRepository;
+import com.javarush.khmelov.util.BasicPasswordEncoder;
+import com.javarush.khmelov.util.PasswordEncoder;
 
 import java.util.Collection;
 import java.util.Optional;
+
 
 public class UserService {
 
@@ -14,11 +18,26 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public User add(String login, String password, String name, String surname, Long roleId) {
+
+        PasswordEncoder passwordEncoder = new BasicPasswordEncoder();
+
+        Role role = userRepository.findRoleById(roleId);
+
+        return User.builder()
+                .login(login)
+                .password(passwordEncoder.encode(password))
+                .name(name)
+                .surname(surname)
+                .role(role)
+                .build();
+    }
     public void create(User user) {
         userRepository.create(user);
     }
 
     public void update(User user) {
+
         userRepository.update(user);
     }
 
@@ -36,6 +55,10 @@ public class UserService {
 
     public Optional<User> findByLogin(String login) {
         return userRepository.findByLogin(login);
+    }
+
+    public Role findRoleById(Long id) {
+        return userRepository.findRoleById(id);
     }
 
 }

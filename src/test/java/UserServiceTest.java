@@ -26,12 +26,16 @@ class UserServiceTest {
     @Test
     @DisplayName("CreateUser")
     void testCreateUser() {
+
+        Role role = new Role();
+        role.setId(1L);
+
         User user = User.builder()
                 .login("testUser")
                 .password("testPassword")
                 .name("Test")
                 .surname("User")
-                .role(Role.USER)
+                .role(role)
                 .build();
 
         userService.create(user);
