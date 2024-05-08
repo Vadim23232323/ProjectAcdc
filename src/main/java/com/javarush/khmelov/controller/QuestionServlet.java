@@ -2,9 +2,9 @@ package com.javarush.khmelov.controller;
 
 import com.javarush.khmelov.entity.Answer;
 import com.javarush.khmelov.entity.Question;
-import com.javarush.khmelov.repository.AnswerRepository;
-import com.javarush.khmelov.repository.QuestRepository;
-import com.javarush.khmelov.repository.QuestionRepository;
+import com.javarush.khmelov.dao.AnswerDAO;
+import com.javarush.khmelov.dao.QuestDAO;
+import com.javarush.khmelov.dao.QuestionDAO;
 import com.javarush.khmelov.service.QuestionService;
 import com.javarush.khmelov.util.WebPaths;
 import jakarta.servlet.RequestDispatcher;
@@ -25,9 +25,9 @@ import java.util.Optional;
 public class QuestionServlet extends HttpServlet {
 
     private QuestionService questionService;
-    private QuestRepository questRepository;
-    private QuestionRepository questionRepository;
-    private AnswerRepository answerRepository;
+    private QuestDAO questRepository;
+    private QuestionDAO questionRepository;
+    private AnswerDAO answerRepository;
 
     @Override
     public void init() throws ServletException {
@@ -40,9 +40,9 @@ public class QuestionServlet extends HttpServlet {
     private void initializeRepositories() {
         ServletContext context = getServletContext();
         if (context.getAttribute("questionRepository") == null) {
-            questRepository = new QuestRepository();
-            questionRepository = new QuestionRepository();
-            answerRepository = new AnswerRepository();
+            questRepository = new QuestDAO();
+            questionRepository = new QuestionDAO();
+            answerRepository = new AnswerDAO();
             context.setAttribute("questRepository", questRepository);
             context.setAttribute("questionRepository", questionRepository);
             context.setAttribute("answerRepository", answerRepository);
@@ -51,9 +51,9 @@ public class QuestionServlet extends HttpServlet {
 
     private void initializeQuestionService() {
         ServletContext context = getServletContext();
-        questionRepository = (QuestionRepository) context.getAttribute("questionRepository");
-        answerRepository = (AnswerRepository) context.getAttribute("answerRepository");
-        questRepository = (QuestRepository) context.getAttribute("questRepository");
+        questionRepository = (QuestionDAO) context.getAttribute("questionRepository");
+        answerRepository = (AnswerDAO) context.getAttribute("answerRepository");
+        questRepository = (QuestDAO) context.getAttribute("questRepository");
         questionService = new QuestionService(questRepository, questionRepository, answerRepository);
     }
 

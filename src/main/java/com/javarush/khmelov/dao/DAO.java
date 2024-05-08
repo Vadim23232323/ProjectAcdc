@@ -1,9 +1,9 @@
-package com.javarush.khmelov.repository;
+package com.javarush.khmelov.dao;
 
 import java.util.Collection;
 import java.util.Optional;
 
-public interface Repository<T> {
+public interface DAO<T> {
 
     Collection<T> getAll();
 

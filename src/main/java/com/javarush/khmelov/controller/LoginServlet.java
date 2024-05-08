@@ -1,6 +1,6 @@
 package com.javarush.khmelov.controller;
 import com.javarush.khmelov.entity.User;
-import com.javarush.khmelov.repository.UserRepository;
+import com.javarush.khmelov.dao.UserDAO;
 import com.javarush.khmelov.service.UserService;
 import com.javarush.khmelov.util.BasicPasswordEncoder;
 import com.javarush.khmelov.util.PasswordEncoder;
@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
         userService = (UserService) context.getAttribute("userService");
 
         if (context.getAttribute("userService") == null) {
-            userService = new UserService(new UserRepository());
+            userService = new UserService(new UserDAO());
             context.setAttribute("userService", userService);
         }
 

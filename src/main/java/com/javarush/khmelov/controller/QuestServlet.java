@@ -1,7 +1,7 @@
 package com.javarush.khmelov.controller;
 
 import com.javarush.khmelov.entity.Quest;
-import com.javarush.khmelov.repository.QuestRepository;
+import com.javarush.khmelov.dao.QuestDAO;
 import com.javarush.khmelov.util.WebPaths;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -19,17 +19,17 @@ import java.util.Collection;
 @WebServlet(name = "QuestServlet", value = "/list-quest")
 public class QuestServlet extends HttpServlet {
 
-    private QuestRepository questRepository;
+    private QuestDAO questRepository;
 
     @Override
     public void init() throws ServletException {
         super.init();
         ServletContext context = getServletContext();
 
-        questRepository = (QuestRepository) context.getAttribute("questRepository");
+        questRepository = (QuestDAO) context.getAttribute("questRepository");
 
         if (context.getAttribute("questRepository") == null) {
-            questRepository = new QuestRepository();
+            questRepository = new QuestDAO();
             context.setAttribute("questRepository", questRepository);
         }
     }

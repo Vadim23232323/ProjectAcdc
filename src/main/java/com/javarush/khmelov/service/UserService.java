@@ -2,7 +2,7 @@ package com.javarush.khmelov.service;
 
 import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
-import com.javarush.khmelov.repository.UserRepository;
+import com.javarush.khmelov.dao.UserDAO;
 import com.javarush.khmelov.util.BasicPasswordEncoder;
 import com.javarush.khmelov.util.PasswordEncoder;
 
@@ -12,9 +12,9 @@ import java.util.Optional;
 
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final UserDAO userRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserDAO userRepository) {
         this.userRepository = userRepository;
     }
 

@@ -1,6 +1,6 @@
 package com.javarush.khmelov.controller;
 import com.javarush.khmelov.entity.Quest;
-import com.javarush.khmelov.repository.QuestRepository;
+import com.javarush.khmelov.dao.QuestDAO;
 import com.javarush.khmelov.service.ImageService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -14,14 +14,14 @@ import java.util.Optional;
 
 @WebServlet(name = "ImageServlet", value = "/image")
 public class ImageServlet extends HttpServlet {
-    private QuestRepository questRepository;
+    private QuestDAO questRepository;
     private ImageService imageService;
 
     @Override
     public void init() throws ServletException {
         super.init();
         ServletContext context = getServletContext();
-        questRepository = (QuestRepository) context.getAttribute("questRepository");
+        questRepository = (QuestDAO) context.getAttribute("questRepository");
 
         if (imageService == null) {
             imageService = new ImageService(context);

@@ -1,6 +1,6 @@
 import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
-import com.javarush.khmelov.repository.UserRepository;
+import com.javarush.khmelov.dao.UserDAO;
 import com.javarush.khmelov.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,11 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class UserServiceTest {
 
     private UserService userService;
-    private UserRepository userRepositoryMock;
+    private UserDAO userRepositoryMock;
 
     @BeforeEach
     void setUp() {
-        userRepositoryMock = Mockito.mock(UserRepository.class);
+        userRepositoryMock = Mockito.mock(UserDAO.class);
         userService = new UserService(userRepositoryMock);
     }
 

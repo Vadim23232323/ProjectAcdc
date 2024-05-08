@@ -1,4 +1,4 @@
-package com.javarush.khmelov.repository;
+package com.javarush.khmelov.dao;
 
 import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
@@ -8,20 +8,17 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
-public class UserRepository implements Repository<User> {
+public class UserDAO implements DAO<User> {
 
     private final SessionFactory sessionFactory;
 
-    public UserRepository(SessionFactory sessionFactory) {
+    public UserDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    public UserRepository() {
+    public UserDAO() {
          sessionFactory = new Configuration()
                  .addAnnotatedClass(com.javarush.khmelov.entity.User.class)
                  .addAnnotatedClass(com.javarush.khmelov.entity.Role.class)

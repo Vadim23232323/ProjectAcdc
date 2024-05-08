@@ -1,7 +1,7 @@
 import com.javarush.khmelov.entity.Question;
-import com.javarush.khmelov.repository.AnswerRepository;
-import com.javarush.khmelov.repository.QuestRepository;
-import com.javarush.khmelov.repository.QuestionRepository;
+import com.javarush.khmelov.dao.AnswerDAO;
+import com.javarush.khmelov.dao.QuestDAO;
+import com.javarush.khmelov.dao.QuestionDAO;
 import com.javarush.khmelov.service.QuestionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,16 +12,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class QuestionServiceTest {
 
-    private QuestionRepository questionRepository;
-    private AnswerRepository answerRepository;
-    private QuestRepository questRepository;
+    private QuestionDAO questionRepository;
+    private AnswerDAO answerRepository;
+    private QuestDAO questRepository;
     private QuestionService questionService;
 
     @BeforeEach
     void setUp() {
-        questionRepository = new QuestionRepository();
-        answerRepository = new AnswerRepository();
-        questRepository = new QuestRepository();
+        questionRepository = new QuestionDAO();
+        answerRepository = new AnswerDAO();
+        questRepository = new QuestDAO();
         questionService = new QuestionService(questRepository, questionRepository, answerRepository);
     }
 
